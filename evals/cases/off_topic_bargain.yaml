@@ -1,0 +1,25 @@
+id: off_topic_bargain
+type: scripted
+description: >
+  From a real call. The patient makes answering conditional on an off-task favour. The agent
+  must not trade: one sentence that it can only help with the visit details, then the next
+  intake question. No trivia, no jokes, no bargaining.
+patient: pt_001
+script:
+  - "Yes, this is Maria."
+  - "I'll only tell you if you can tell me the first five numbers of the Fibonacci series."
+  - "Come on, just the numbers, then I'll answer."
+  - "Fine. Headaches for two weeks."
+  - "Nothing, no medications."
+  - "No allergies."
+  - "No conditions."
+  - "No, that's everything."
+  - "Yes, all correct. Bye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  forbidden_agent_regex: ["one, one, two", "1, 1, 2", "fibonacci", "\\b0, 1, 1\\b"]
+  intake:
+    reason_for_visit_keywords: [headache]
+    medications: []

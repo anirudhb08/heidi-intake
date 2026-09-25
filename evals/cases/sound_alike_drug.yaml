@@ -1,0 +1,22 @@
+id: sound_alike_drug
+type: scripted
+description: Patient says Klonopin, which speech recognition confuses with clonidine. Agent should confirm and record what the patient confirms, not substitute.
+patient: pt_001
+script:
+  - "Yes, this is Maria."
+  - "I'm here for a follow-up on my anxiety."
+  - "I take Klonopin, half a milligram, at night."
+  - "K-L-O-N-O-P-I-N. It's for anxiety."
+  - "Yes, that's right."
+  - "Nothing else. No allergies."
+  - "Just the anxiety. Nothing else."
+  - "No, that's everything."
+  - "Yes, correct. Thanks."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, lookup_medication, record_intake, end_call]
+  intake:
+    medications:
+      - {name_any_of: [klonopin, clonazepam], dose: "0.5 mg", frequency: at night}
+    forbidden_medication_names: [clonidine]

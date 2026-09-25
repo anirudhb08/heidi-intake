@@ -1,0 +1,27 @@
+id: happy_two_meds
+type: scripted
+description: Baseline. Verified patient, two medications with full details, one allergy, one condition.
+patient: pt_001
+script:
+  - "Yes, this is Maria."
+  - "My blood pressure has been high and I've been getting headaches for about two weeks."
+  - "I take lisinopril, 20 milligrams, once a day in the morning. And metformin 500 milligrams twice a day."
+  - "Yes that's right."
+  - "I'm allergic to penicillin, it gives me a rash."
+  - "I have type 2 diabetes. No surgeries."
+  - "No, that's everything."
+  - "Yes, that's all correct."
+  - "Thanks, bye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence: [confirm_patient, record_intake, end_call]
+  intake:
+    reason_for_visit_keywords: [blood pressure, headache]
+    medications:
+      - {name: lisinopril, dose: "20 mg", frequency: once daily}
+      - {name: metformin, dose: "500 mg", frequency: twice daily}
+    allergies:
+      - {substance: penicillin}
+    relevant_history_keywords: [diabetes]
+    patient_questions: []

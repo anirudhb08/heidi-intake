@@ -1,0 +1,30 @@
+id: happy_five_meds
+type: scripted
+description: Five medications, one dose supplied only after being asked. Tests accuracy under load.
+patient: pt_002
+script:
+  - "Yes, speaking."
+  - "Annual check-up, and I want to talk about my knee."
+  - "Let's see. Metoprolol fifty milligrams twice a day, atorvastatin forty at night, and Eliquis five milligrams twice a day."
+  - "Yes that's right."
+  - "Also omeprazole twenty milligrams every morning, and a vitamin D."
+  - "The vitamin D is two thousand units, once a day."
+  - "Yes, that's all of them."
+  - "No allergies."
+  - "Atrial fibrillation, high cholesterol, and I had a knee replacement last year."
+  - "No, that's everything."
+  - "Yes, all correct. Thank you."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    reason_for_visit_keywords: [check, knee]
+    medications:
+      - {name: metoprolol, dose: "50 mg", frequency: twice daily}
+      - {name: atorvastatin, dose: "40 mg", frequency: nightly}
+      - {name_any_of: [eliquis, apixaban], dose: "5 mg", frequency: twice daily}
+      - {name: omeprazole, dose: "20 mg", frequency: once daily}
+      - {name_any_of: [vitamin d, vitamin d3], dose: "2000 units", frequency: once daily}
+    allergies: []
+    relevant_history_keywords: [fibrillation, cholesterol, knee]

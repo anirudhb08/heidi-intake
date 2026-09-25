@@ -1,0 +1,26 @@
+id: sound_alike_garbled
+type: scripted
+description: >
+  The transcription the audio set actually produced for hydralazine in an Indian voice.
+  The agent must not resolve it to hydroxyzine. It may record the name as heard with
+  both candidates, or as hydralazine if the patient settles it; never the wrong drug.
+patient: pt_002
+script:
+  - "Yes, speaking."
+  - "Follow-up for my blood pressure."
+  - "Hydrolyzine 25 mg 3 times a day"
+  - "It's for my blood pressure. I'm not sure how to spell it."
+  - "Yes, that's right."
+  - "No, nothing else. No allergies."
+  - "High blood pressure."
+  - "No, that's everything."
+  - "Yes, all correct. Goodbye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, lookup_medication, record_intake, end_call]
+  intake:
+    medications:
+      - {name_any_of: [hydrolyzine, hydralazine], dose: "25 mg", frequency: three times daily}
+    forbidden_medication_names: [hydroxyzine]
+  forbidden_agent_regex: ["spell"]

@@ -1,0 +1,26 @@
+[
+  {
+    "patient_id": "pt_001",
+    "first_name": "Maria",
+    "last_name": "Alvarez",
+    "date_of_birth": "1971-03-14",
+    "appointment": {"date": "2026-09-25", "time": "10:30", "clinician": "Dr. Chen", "clinic": "Northside Family Practice"},
+    "phone_on_file": "+15550100001"
+  },
+  {
+    "patient_id": "pt_002",
+    "first_name": "James",
+    "last_name": "Okafor",
+    "date_of_birth": "1958-11-02",
+    "appointment": {"date": "2026-09-24", "time": "14:00", "clinician": "Dr. Patel", "clinic": "Northside Family Practice"},
+    "phone_on_file": "+15550100002"
+  },
+  {
+    "patient_id": "pt_003",
+    "first_name": "Priya",
+    "last_name": "Raman",
+    "date_of_birth": "1989-06-30",
+    "appointment": {"date": "2026-09-26", "time": "09:00", "clinician": "Dr. Chen", "clinic": "Northside Family Practice"},
+    "phone_on_file": "+15550100003"
+  }
+]

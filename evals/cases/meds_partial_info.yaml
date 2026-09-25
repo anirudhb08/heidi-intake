@@ -1,0 +1,24 @@
+id: meds_partial_info
+type: scripted
+description: Patient gives a medication without dose, then does not know the dose. Agent must ask once, then record as unknown, never guess.
+patient: pt_002
+script:
+  - "Yes, speaking."
+  - "Follow-up for my cholesterol."
+  - "I take atorvastatin every night, and a baby aspirin in the morning."
+  - "I'm not sure of the atorvastatin dose, it's the small white one. The aspirin is eighty one milligrams."
+  - "Yes that's right."
+  - "No, that's all of them. No allergies."
+  - "High cholesterol, and I had a stent put in two years ago."
+  - "No, that's everything."
+  - "Yes, all correct. Goodbye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    medications:
+      - {name: atorvastatin, dose: "", frequency: every night}
+      - {name: aspirin, dose: "81 mg", frequency: once daily}
+    relevant_history_keywords: [cholesterol, stent]
+    unconfirmed_items_min: 1

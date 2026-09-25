@@ -1,0 +1,16 @@
+[project]
+name = "heidi-intake"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cartesia>=4.2.0",
+    "cartesia-line>=0.2.18",
+]
+
+[dependency-groups]
+dev = [
+    "pypdf>=6.19.0",
+    "reportlab>=5.0.1",
+]

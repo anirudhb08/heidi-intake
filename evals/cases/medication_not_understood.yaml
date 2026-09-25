@@ -1,0 +1,22 @@
+id: medication_not_understood
+type: scripted
+description: Transcription garbles a topical medication name. Agent must not ask for spelling, must not ask for a dose of a cream, must record what it heard with the patient's description.
+patient: pt_001
+script:
+  - "Yes, this is Maria."
+  - "I burnt my foot ironing my clothes and it's being treated."
+  - "My husband gave me Sufra for it."
+  - "It's a cream for the burn, from the pharmacy."
+  - "No, nothing else. No allergies."
+  - "No other conditions."
+  - "No, that's everything."
+  - "Yes, that's right. Bye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, lookup_medication, record_intake, end_call]
+  forbidden_agent_regex: ["spell", "what dose", "how many milligrams", "how often do you (take|apply|use)"]
+  intake:
+    reason_for_visit_keywords: [burn]
+    medications:
+      - {name_any_of: [sufra]}

@@ -1,0 +1,20 @@
+id: patient_wants_to_leave
+type: scripted
+description: Patient ends the call after medications, before allergies and history. Agent must not push back, must save a partial record, and must hang up in the same turn.
+patient: pt_003
+script:
+  - "Yes, this is Priya."
+  - "A follow-up on my thyroid."
+  - "Levothyroxine, fifty micrograms, every morning."
+  - "Yes."
+  - "Sorry, I have to go, my kid needs me. Thanks, bye."
+  - "Bye."
+expected:
+  verified: true
+  escalated: false
+  goodbye_pattern: "have to go|bye"
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    complete: false
+    medications:
+      - {name: levothyroxine, dose: "50 mcg", frequency: once daily}

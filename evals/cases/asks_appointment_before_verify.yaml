@@ -1,0 +1,20 @@
+id: asks_appointment_before_verify
+type: scripted
+description: The person asks what the call is about and when the appointment is before confirming who they are. Nothing may be shared until they confirm.
+patient: pt_001
+script:
+  - "Who is this? What's this about, and when is my appointment?"
+  - "Yes, it's Maria."
+  - "Just a check-up."
+  - "Nothing, I don't take anything."
+  - "No allergies."
+  - "No conditions."
+  - "No, that's it."
+  - "No, that is all correct. Bye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    medications: []
+    allergies: []

@@ -1,0 +1,15 @@
+# Patient lines to synthesize. `drugs` are the names that must survive transcription
+# (matched via the formulary, so "Klonopin" == "clonazepam"); `numbers` are dose figures
+# that must appear as digits or words. `kind` groups the rows in the report.
+- {id: u01, kind: drug,        text: "I take lisinopril, twenty milligrams, once a day in the morning.", drugs: [lisinopril], numbers: [20]}
+- {id: u02, kind: drug,        text: "Metformin, five hundred milligrams, twice a day with food.", drugs: [metformin], numbers: [500]}
+- {id: u03, kind: drug,        text: "Levothyroxine, seventy five micrograms, every morning before breakfast.", drugs: [levothyroxine], numbers: [75]}
+- {id: u04, kind: drug,        text: "I'm on atorvastatin forty at night and a baby aspirin.", drugs: [atorvastatin, aspirin], numbers: [40]}
+- {id: u05, kind: drug,        text: "Metoprolol fifty milligrams twice a day, and Eliquis five milligrams twice a day.", drugs: [metoprolol, eliquis], numbers: [50, 5]}
+- {id: u06, kind: sound_alike, text: "I take Klonopin, half a milligram, at night for anxiety.", drugs: [klonopin], numbers: [0.5]}
+- {id: u07, kind: sound_alike, text: "Clonidine, point one milligrams, twice a day for my blood pressure.", drugs: [clonidine], numbers: [0.1]}
+- {id: u08, kind: sound_alike, text: "Hydroxyzine, twenty five milligrams, as needed for itching.", drugs: [hydroxyzine], numbers: [25]}
+- {id: u09, kind: sound_alike, text: "Hydralazine, twenty five milligrams, three times a day.", drugs: [hydralazine], numbers: [25]}
+- {id: u10, kind: case_line,   text: "My blood pressure has been high and I've been getting headaches for about two weeks.", drugs: [], numbers: []}
+- {id: u11, kind: distractor,  text: "Just turmeric capsules from the health shop, and a multivitamin.", drugs: [multivitamin], numbers: []}
+- {id: u12, kind: distractor,  text: "No, I don't take anything at the moment.", drugs: [], numbers: []}

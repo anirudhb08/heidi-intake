@@ -1,0 +1,23 @@
+id: correction_on_readback
+type: scripted
+description: Patient corrects a dose during the final readback. The record must carry the corrected value.
+patient: pt_003
+script:
+  - "Yes, this is Priya."
+  - "Follow-up on my thyroid."
+  - "Levothyroxine, fifty micrograms, every morning."
+  - "Yes."
+  - "No, nothing else."
+  - "No allergies."
+  - "Hypothyroidism."
+  - "Actually wait, the levothyroxine is seventy five micrograms now, they raised it last month. Everything else is right."
+  - "Yes, that's correct now."
+  - "Bye."
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    medications:
+      - {name: levothyroxine, dose: "75 mcg", frequency: once daily}
+    relevant_history_keywords: [thyroid]

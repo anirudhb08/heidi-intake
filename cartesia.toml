@@ -1,0 +1,11 @@
+[cartesia]
+name = "heidi-previsit-intake"
+description = "Pre-visit intake assistant for Heidi Health: verifies the patient, collects reason for visit, medications, allergies and history, and records a structured summary for the clinician."
+version = "0.1.0"
+
+[cartesia.server]
+port = 8000
+host = "0.0.0.0"
+
+[cartesia.environment]
+required_vars = ["MOONSHOT_API_KEY"]

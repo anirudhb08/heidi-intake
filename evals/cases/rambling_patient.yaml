@@ -1,0 +1,26 @@
+id: rambling_patient
+type: persona
+description: Talkative patient with lots of irrelevant detail and a medication mentioned in passing. Record must contain only what was actually said, nothing inferred.
+patient: pt_002
+persona:
+  name: James Okafor
+  dob_spoken: November 2nd 1958
+  facts:
+    reason for visit: "my back has been sore since I helped my son move house"
+    medications: "ibuprofen, two hundred milligrams, a couple of times a day when it's bad. Nothing else regular."
+    allergies: "none"
+    conditions: "none, apart from a bit of arthritis in my hands"
+  notes: |
+    You are chatty. Wrap answers in small stories: the move, the weather, your grandson's football. Two or three sentences each time.
+    Mention the ibuprofen only in passing while telling the story about your back, not as a direct answer, then confirm it when asked.
+    Do not invent any medications, allergies or conditions beyond the facts.
+expected:
+  verified: true
+  escalated: false
+  tool_sequence_contains: [confirm_patient, record_intake, end_call]
+  intake:
+    reason_for_visit_keywords: [back]
+    medications:
+      - {name_any_of: [ibuprofen, advil], dose: "200 mg"}
+    allergies: []
+    relevant_history_keywords: [arthritis]

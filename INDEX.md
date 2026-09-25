@@ -9,7 +9,6 @@ Cartesia FDE take-home. A patient-facing voice agent on Cartesia Line, and the e
 | **Recording of a real call** | [recording/call_recording.wav](recording/call_recording.wav) · [transcript](recording/call_recording.transcript.txt) |
 | **Agent code** | [main.py](main.py) (Line entry point) · [intake/](intake/) · [prompt](intake/prompt.py) · [tools](intake/tools/) |
 | **Evaluation code** | [evals/](evals/) · [simulate.py](evals/simulate.py) · [grade.py](evals/grade.py) · [judge.py](evals/judge.py) · [run.py](evals/run.py) · [cases/](evals/cases/) · [audio/](evals/audio/) |
-| **Raw results**, every version, one JSON line per run | [evals/results/](evals/results/) (final full run: [full-v6](evals/results/full-v6/)) |
 
 Long-form markdown behind the two PDFs: [EVAL.md](EVAL.md) (strategy and results in full) and [NOTES.md](NOTES.md) (known weaknesses, with a longer version in [evals/results/NOTES.long.md](evals/results/NOTES.long.md)).
 

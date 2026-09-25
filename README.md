@@ -56,7 +56,7 @@ NOTES.md                   known weaknesses and what to harden first (long form 
 
 ```bash
 uv sync
-cp .env.example .env            # add MOONSHOT_API_KEY (or ANTHROPIC_API_KEY with MODEL=anthropic/...)
+printf 'MODEL=moonshot/kimi-k2.6\nMOONSHOT_API_KEY=sk-...\n' > .env   # or ANTHROPIC_API_KEY with MODEL=anthropic/...; JUDGE_MODEL and THINKING=on are optional
 
 # one scripted case, in-process, transcript printed
 uv run python -m evals.simulate --script evals/cases/happy_two_meds.yaml
